@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,10 +18,26 @@
       href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
       rel="stylesheet"
     />
+    <!-- Plain style -->
+    <style>
+      .font-anton {
+        font-family: "Anton", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
   </head>
   <body class="bg-[#010313] min-h-screen">
     <!-- 1st screen -->
-    <div></div>
+    <div
+      class="bg-[url(./images/background.png)] min-h-screen bg-no-repeat bg-center bg-contain flex flex-col justify-center items-center"
+    >
+      <div class="text-center">
+        <h1 class="text-[120px] font-anton text-white">ALPHABET CLASH</h1>
+        <p class="text-white mb-8 font-semibold">Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
+        <button class="btn font-semibold text-2xl">Play Now</button>
+      </div>
+    </div>
     <!-- 1st screen -->
     <div></div>
     <!-- 1st screen -->
