@@ -1,9 +1,9 @@
 document.getElementById('play-now').addEventListener('click', function () {
-    // Add first screen
+    // Hide first screen
     const firstScreen = document.getElementById('first-screen');
     firstScreen.classList.add('hidden');
 
-    // Hide second screen
+    // Add second screen
     const secondScreen = document.getElementById('second-screen');
     secondScreen.classList.remove('hidden');
 
@@ -35,12 +35,35 @@ document.addEventListener('keyup', function (event) {
     const currentLetter = currentLetterElement.innerText.toLowerCase();
 
     const keyPressed = event.key;
-    console.log(currentLetter, keyPressed);
 
     if (currentLetter === keyPressed) {
-        console.log('Yahooo! You got a point.')
+        // Change previous key color
+        const previousKey = document.getElementById(keyPressed);
+        previousKey.style.background = 'white';
+
+        // A new letter
+        const randomLetter = randomAlphabet();
+        const randomLetterOnScreen = document.getElementById('random-letter');
+        randomLetterOnScreen.innerText = randomLetter;
+
+        // New key button background color change
+        const keyButton = document.getElementById(randomLetter);
+        keyButton.style.background = 'orange';
+
+        // Score update
+        const presentScoreElement = document.getElementById('score-btn').innerText;
+        const presentScore = parseInt(presentScoreElement);
+        const presentScoreUpdated = presentScore + 1;
+        const totalScoreElement = document.getElementById('score-btn');
+        totalScoreElement.innerText = presentScoreUpdated;
+
     } else {
-        console.log('Oh no! you lost a life.')
+        // life reduce
+        const presentlifeElement = document.getElementById('life-btn');
+        const lifeCountNumber = presentlifeElement.innerText;
+        const lifeCount = parseInt(lifeCountNumber);
+        const lifeReduce = lifeCount - 1;
+        presentlifeElement.innerText = lifeReduce;
     }
 
 })
