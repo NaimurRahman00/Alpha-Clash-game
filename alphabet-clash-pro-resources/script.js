@@ -1,4 +1,4 @@
-document.getElementById('play-now').addEventListener('click', function(){
+document.getElementById('play-now').addEventListener('click', function () {
     // Add first screen
     const firstScreen = document.getElementById('first-screen');
     firstScreen.classList.add('hidden');
@@ -26,5 +26,23 @@ function randomAlphabet() {
     const alphabetArray = alphabet.split('');
     const randomNum = parseInt(Math.random() * 25);
     const randomAlphabet = alphabetArray[randomNum];
-    return randomAlphabet;    
+    return randomAlphabet;
 }
+
+// Keyboard pressing
+document.addEventListener('keyup', function (event) {
+    const currentLetterElement = document.getElementById('random-letter');
+    const currentLetter = currentLetterElement.innerText.toLowerCase();
+
+    const keyPressed = event.key;
+    console.log(currentLetter, keyPressed);
+
+    if (currentLetter === keyPressed) {
+        console.log('Yahooo! You got a point.')
+    } else {
+        console.log('Oh no! you lost a life.')
+    }
+
+})
+
+// Alphabet Matching
