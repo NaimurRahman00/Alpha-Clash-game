@@ -56,6 +56,9 @@ document.addEventListener('keyup', function (event) {
         const presentScoreUpdated = presentScore + 1;
         const totalScoreElement = document.getElementById('score-btn');
         totalScoreElement.innerText = presentScoreUpdated;
+        // final score on last screen
+        const finalScore = document.getElementById('final-score');
+        finalScore.innerText = presentScoreUpdated;
 
     } else {
         // life reduce
@@ -64,8 +67,37 @@ document.addEventListener('keyup', function (event) {
         const lifeCount = parseInt(lifeCountNumber);
         const lifeReduce = lifeCount - 1;
         presentlifeElement.innerText = lifeReduce;
+
+        // Game over
+        if (lifeReduce === 0) {
+            // Hide second screen
+            const secondScreen = document.getElementById('second-screen');
+            secondScreen.classList.add('hidden');
+
+            // Add third screen
+            const thirdScreen = document.getElementById('third-screen');
+            thirdScreen.classList.remove('hidden');
+            console.log('Game over!');
+        }
     }
 
-})
+});
 
-// Alphabet Matching
+// Play again
+document.getElementById('play-again-btn').addEventListener('click', function () {
+    // Hide third screen
+    const thirdScreen = document.getElementById('third-screen');
+    thirdScreen.classList.add('hidden');
+
+    // show second screen
+    const secondScreen = document.getElementById('second-screen');
+    secondScreen.classList.remove('hidden');
+
+    // restore life 
+    const presentlifeElement = document.getElementById('life-btn');
+    presentlifeElement.innerText = '5';
+
+    // Refresh score
+    const totalScoreElement = document.getElementById('score-btn');
+    totalScoreElement.innerText = 0;
+});
